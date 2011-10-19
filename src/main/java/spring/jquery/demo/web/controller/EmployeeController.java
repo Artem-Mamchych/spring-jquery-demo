@@ -38,13 +38,13 @@ public class EmployeeController {
         this.dao = employeeDao;
     }
 
-    @RequestMapping(value={"/", "/index"}, method=RequestMethod.GET)
+    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index() throws NotFoundException {
         logger.info("index GET");
         return REDIRECT_SHOW_ALL;
     }
 
-    @RequestMapping(value=SHOW_ALL, method=RequestMethod.GET)
+    @RequestMapping(value = SHOW_ALL, method = RequestMethod.GET)
     public ModelAndView getAllMessages() throws NotFoundException {
         logger.info("getAllMessages GET");
         List<Employee> employees = dao.findAll();
@@ -54,23 +54,23 @@ public class EmployeeController {
         return mav;
     }
 
-    @RequestMapping(value={ADD/*, ADD + "/employee"*/}, method=RequestMethod.GET)
-	public String getCreateForm(Model model) {
-	    logger.info("getCreateForm RequestMapping(method=RequestMethod.GET)|" + ADD);
-		model.addAttribute(new Employee());
-		return "addForm";
-	}
+    @RequestMapping(value = {ADD/*, ADD + "/employee"*/}, method = RequestMethod.GET)
+    public String getCreateForm(Model model) {
+        logger.info("getCreateForm RequestMapping(method=RequestMethod.GET)|" + ADD);
+        model.addAttribute(new Employee());
+        return "addForm";
+    }
 
-	@RequestMapping(value={/*ADD, */ADD + "/employee"}, method=RequestMethod.POST)
-	public String create(Employee employee, BindingResult result) {
-	    logger.info("create RequestMapping(method=RequestMethod.POST)====" + ADD);
-		if (result.hasErrors()) {
-			return "addForm";
-		}
-		//message.setDatePosted(new Date(System.currentTimeMillis()));
+    @RequestMapping(value = {/*ADD, */ADD + "/employee"}, method = RequestMethod.POST)
+    public String create(Employee employee, BindingResult result) {
+        logger.info("create RequestMapping(method=RequestMethod.POST)====" + ADD);
+        if (result.hasErrors()) {
+            return "addForm";
+        }
+        //message.setDatePosted(new Date(System.currentTimeMillis()));
         dao.makePersistent(employee);
         logger.info("Redirecting(method=RequestMethod.POST)>>>>" + REDIRECT_SHOW_ALL);
-		return REDIRECT_SHOW_ALL;
-	}
+        return REDIRECT_SHOW_ALL;
+    }
 
 }

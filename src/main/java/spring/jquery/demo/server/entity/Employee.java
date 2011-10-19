@@ -8,28 +8,49 @@ import java.util.Date;
 @Table(name = "employees")
 public class Employee implements Persistent {
 
-    /** Employee id. */
-    @Id
-	@GeneratedValue/*(strategy= GenerationType.SEQUENCE)//hsqldb*/
-    private Integer id;
+    public Employee() {
+    }
 
-    /** Employee Name. */
-    @Column(length=60, nullable=false)
+    public Employee(String firstName, String lastName, double baseSalary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.baseSalary = baseSalary;
+        this.id = new Long(this.hashCode());
+    }
+
+    /**
+     * Employee id.
+     */
+    @Id
+    @GeneratedValue
+/*(strategy= GenerationType.SEQUENCE)//hsqldb*/
+    private Long id;
+
+    /**
+     * Employee Name.
+     */
+    @Column(length = 60, nullable = false)
     private String firstName;
 
-    /** Employee Surname. */
-    @Column(length=60, nullable=false)
+    /**
+     * Employee Surname.
+     */
+    @Column(length = 60, nullable = false)
     private String lastName;
-    /** Employee Base salary. */
+    /**
+     * Employee Base salary.
+     */
     private double baseSalary;
-    /** Employee birthday date. */
+    /**
+     * Employee birthday date.
+     */
     private Date birthday;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

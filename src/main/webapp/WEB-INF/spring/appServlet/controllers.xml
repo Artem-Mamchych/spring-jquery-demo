@@ -12,7 +12,7 @@
 
     <!-- Controllers -->
     <bean id="employeeDao"
-          class="spring.jquery.demo.server.dao.impl.EmployeeHibernateDaoImpl">
+          class="spring.jquery.demo.server.dao.impl.EmployeeFakeDaoImpl"><!--EmployeeHibernateDaoImpl-->
     </bean>
 
     <bean id="controllerHandlerAdapter" class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>

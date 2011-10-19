@@ -6,7 +6,7 @@
     </excludes>
 
     <decorator name="master" page="master.jsp">
-          <pattern>/*</pattern>
+        <pattern>/*</pattern>
     </decorator>
 
 

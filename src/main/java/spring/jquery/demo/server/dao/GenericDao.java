@@ -5,9 +5,9 @@ import java.util.List;
 
 /**
  * Based on http://community.jboss.org/docs/DOC-13955
- * @param <T> entity type
- * @param <ID> primary key
  *
+ * @param <T>  entity type
+ * @param <ID> primary key
  * @see spring.jquery.demo.server.dao.impl.GenericHibernateDaoImpl
  */
 public interface GenericDao<T, ID extends Serializable> {

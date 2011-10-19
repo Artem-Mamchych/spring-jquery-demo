@@ -12,8 +12,8 @@
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
 
     <!-- Enables the Spring MVC @Controller programming model -->
     <mvc:annotation-driven/>
@@ -55,20 +55,21 @@
 
     <bean id="dataSourceMySQL" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost/employee?autoReconnect=true&amp;characterEncoding=UTF-8&amp;useUnicode=true"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost/employee?autoReconnect=true&amp;characterEncoding=UTF-8&amp;useUnicode=true"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
 
     <!-- Hibernate session factory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-        <property name="dataSource" ref="dataSourceMySQL"/>
-        <property name="packagesToScan" value="spring.jquery.demo.server.entity" />
+        <property name="dataSource" ref="dataSourceEmbedded"/>
+        <property name="packagesToScan" value="spring.jquery.demo.server.entity"/>
         <property name="hibernateProperties">
             <props>
-                <!--<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>-->
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLMyISAMDialect</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLMyISAMDialect</prop>-->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>

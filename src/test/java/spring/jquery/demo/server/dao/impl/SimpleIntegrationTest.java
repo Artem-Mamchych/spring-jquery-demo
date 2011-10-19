@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import static org.junit.Assert.assertEquals;
 
 /**
- * 
+ *
  */
 public class SimpleIntegrationTest extends ApplicationContextAwareTest {
 

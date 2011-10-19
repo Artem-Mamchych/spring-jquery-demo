@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Base class fo unit tests with spring context.
- * <p>
+ * <p/>
  * Each method is run within a transaction which is rolled back when method is over.
  * Hibernate sessions which used in tests are have {@link org.hibernate.FlushMode#ALWAYS}
  *
@@ -42,5 +42,5 @@ public abstract class ApplicationContextAwareTest {
     public void afterMethod() {
         // nothing
     }
-    
+
 }

@@ -16,15 +16,16 @@
             <td width="80%"><spring:message code="label.salary"/> <c:out
                     value="${employee.baseSalary}"/>
             </td>
-            <%--<td>
-                 <a href="${pageContext.request.contextPath}/message/update/<c:out
-                    value="${message.id}"/>"><spring:message code="label.message.edit"/></a>
-                <a href="${pageContext.request.contextPath}/message/delete/<c:out
-                    value="${message.id}"/>"><spring:message code="label.message.delete"/></a>
-            </td>--%>
+                <%--<td>
+                     <a href="${pageContext.request.contextPath}/message/update/<c:out
+                        value="${message.id}"/>"><spring:message code="label.message.edit"/></a>
+                    <a href="${pageContext.request.contextPath}/message/delete/<c:out
+                        value="${message.id}"/>"><spring:message code="label.message.delete"/></a>
+                </td>--%>
         </tr>
     </c:forEach>
 </table>
 <a href="${pageContext.request.contextPath}/add/"><spring:message code="label.add"/></a>
+<a href="${pageContext.request.contextPath}/main/ajax/add">Ajax test page</a>
 </body>
 </html>

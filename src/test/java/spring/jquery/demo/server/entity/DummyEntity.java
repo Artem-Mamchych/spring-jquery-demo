@@ -9,14 +9,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "USER")
 public class DummyEntity {
-    
-	@Id
-	@GeneratedValue(strategy= GenerationType.SEQUENCE)
-	private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
         this.id = id;
